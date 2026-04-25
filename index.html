@@ -22,6 +22,56 @@
 <meta name="twitter:description" content="Sketch & graphic tattoos inspired by nature. Custom designs only. Barcelona.">
 <meta name="twitter:image" content="https://hmarno.tattoo/hero.webp">
 
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What style do you work in?",
+      "acceptedAnswer": { "@type": "Answer", "text": "I specialise in sketch-style and black graphic tattoos inspired by nature — botanicals, birds, insects, and organic forms. Clean lines, quiet precision, and a design that's entirely your own." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do custom designs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — always. Every tattoo I make is drawn exclusively for you. I don't work with flash and I never repeat a design." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a tattoo cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Small pieces (up to 3h) — 200–400€. Medium (3–5h) — 500–800€. Full day (up to 7h) — 900–1200€. Two days — 2000–2500€. You'll receive a personalised quote after your consultation." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fill out the contact form on the website. I'll review your request and get back to you to discuss your idea, timeline, and next steps." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is the studio?",
+      "acceptedAnswer": { "@type": "Answer", "text": "I work from a studio in the centre of Barcelona, by appointment only. The exact address is shared after booking." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is your studio queer-friendly?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. My studio is a safe, welcoming space for everyone regardless of gender identity or sexual orientation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you tattoo tourists visiting Barcelona?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes! Many clients plan their appointment as part of their trip. I recommend booking at least 2–3 weeks in advance to secure your spot." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the process take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "After you submit the form, I'll be in touch within a few days. We'll discuss your idea, I'll create a custom design, and then schedule your session." }
+    }
+  ]
+}
+</script>
+
 <!-- Structured Data для Google -->
 <script type="application/ld+json">
 {
@@ -568,6 +618,122 @@
       .pricing-cta { padding: 64px 80px 96px; }
     }
 
+    /* ── FAQ ── */
+    .faq {
+      padding: 64px 20px 72px;
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .faq-heading {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0d0d0d;
+      line-height: 1;
+      margin-bottom: 48px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      padding: 20px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0d0d0d;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: #0d0d0d;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .faq-icon::before {
+      width: 12px;
+      height: 1.5px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-icon::after {
+      width: 1.5px;
+      height: 12px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-item.open .faq-icon::after {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+
+    .faq-answer p {
+      padding-bottom: 20px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #555;
+      max-width: 680px;
+    }
+
+    @media (min-width: 768px) {
+      .faq {
+        padding: 96px 56px 104px;
+      }
+      .faq-heading {
+        font-size: 100px;
+        margin-bottom: 56px;
+      }
+      .faq-question {
+        font-size: 17px;
+        padding: 24px 0;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .faq { padding: 96px 80px 104px; }
+    }
+
     /* ── CONTACT ── */
     .contact {
       padding: 64px 20px 0;
@@ -982,6 +1148,94 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <h2 class="faq-heading">FAQ</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What style do you work in?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>I specialise in sketch-style and black graphic tattoos inspired by nature — botanicals, birds, insects, and organic forms. Clean lines, quiet precision, and a design that's entirely your own.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you do custom designs?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes — always. Every tattoo I make is drawn exclusively for you. I don't work with flash and I never repeat a design.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How much does a tattoo cost?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Small pieces (up to 3h) — 200–400€. Medium (3–5h) — 500–800€. Full day (up to 7h) — 900–1200€. Two days — 2000–2500€. You'll receive a personalised quote after your consultation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I book?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Fill out the form on this page. I'll review your request and get back to you to discuss your idea, timeline, and next steps.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Where is the studio?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>I work from a studio in the centre of Barcelona, by appointment only. The exact address is shared after booking.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is your studio queer-friendly?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. My studio is a safe, welcoming space for everyone regardless of gender identity or sexual orientation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you tattoo tourists visiting Barcelona?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! Many clients plan their appointment as part of their trip. I recommend booking at least 2–3 weeks in advance to secure your spot.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does the process take?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>After you submit the form, I'll be in touch within a few days. We'll discuss your idea, I'll create a custom design, and then schedule your session.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <!--
     SETUP: Sign up at formspree.io, create a form pointed at hmarno.tattoo@gmail.com,
@@ -1052,6 +1306,12 @@
     </div>
     <div class="footer-bottom">© 2026 HMARNO · Barcelona</div>
   </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      btn.closest('.faq-item').classList.toggle('open');
+    }
+  </script>
 
   <script>
     function toggleNav() {
