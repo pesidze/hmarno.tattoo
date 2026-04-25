@@ -75,7 +75,7 @@
       height: 64px;
       background: #fff;
       position: relative;
-      z-index: 10;
+      z-index: 100;
     }
 
     .nav-logo {
@@ -90,19 +90,98 @@
       width: auto;
     }
 
-    .nav-links {
+    .nav-right {
       display: flex;
-      gap: 36px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-cta {
+      padding: 9px 18px;
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: #0d0d0d;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    nav.nav-open .nav-burger span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    nav.nav-open .nav-burger span:nth-child(2) {
+      opacity: 0;
+    }
+    nav.nav-open .nav-burger span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 8px 20px 16px;
+      flex-direction: column;
       list-style: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    nav.nav-open .nav-links {
+      display: flex;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
     }
 
     .nav-links a {
+      display: block;
+      padding: 14px 0;
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #0d0d0d;
       text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
     }
 
     /* ── HERO ── */
@@ -206,11 +285,7 @@
       }
 
       .nav-links {
-        gap: 48px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
+        padding: 8px 48px 16px;
       }
 
       .hero {
@@ -318,6 +393,10 @@
     @media (min-width: 1200px) {
       nav {
         padding: 0 80px;
+      }
+
+      .nav-links {
+        padding: 8px 80px 16px;
       }
 
       .hero-content {
@@ -754,6 +833,12 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo"><img src="hmarnologo.svg" alt="HMARNO" height="38"></a>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Book</a>
+      <button class="nav-burger" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
     <ul class="nav-links">
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="designs.html">Designs</a></li>
@@ -967,6 +1052,17 @@
     </div>
     <div class="footer-bottom">© 2026 HMARNO · Barcelona</div>
   </footer>
+
+  <script>
+    function toggleNav() {
+      document.querySelector('nav').classList.toggle('nav-open');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('nav')) {
+        document.querySelector('nav').classList.remove('nav-open');
+      }
+    });
+  </script>
 
   <script>
     const AUTOPLAY_MS = 3000;
