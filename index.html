@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMARNO — Tattoo Artist Barcelona</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #fff;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 64px;
+      background: #fff;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      display: block;
+      height: 28px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0d0d0d;
+      text-decoration: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: calc(100svh - 64px);
+      overflow: hidden;
+    }
+
+    /* Background photo */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero.webp');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    /* Dark overlay */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.58);
+    }
+
+    /* Content sits above bg + overlay */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 20px 20px;
+    }
+
+    /* ── TITLE ── */
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.04;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── BOTTOM BLOCK ── */
+    .hero-bottom {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-sub {
+      padding: 0 0 28px;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* ── BUTTONS ── */
+    .hero-ctas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .btn-cta {
+      padding: 22px 16px;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      display: block;
+      white-space: nowrap;
+    }
+
+    .btn-dark {
+      background: #0d0d0d;
+      color: #fff;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: #0d0d0d;
+    }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav {
+        height: 64px;
+        padding: 0 48px;
+      }
+
+      .nav-logo {
+        font-size: 24px;
+      }
+
+      .nav-links {
+        gap: 48px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        height: calc(100svh - 64px);
+      }
+
+      .hero-content {
+        padding: 56px 56px 0;
+      }
+
+      .hero-title {
+        font-size: 80px;
+        max-width: 640px;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        max-width: 420px;
+        padding-bottom: 36px;
+      }
+
+      .hero-ctas {
+        grid-template-columns: 220px 220px;
+      }
+
+      .btn-cta {
+        font-size: 16px;
+        padding: 26px 24px;
+      }
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 64px 20px 72px;
+      background: #fff;
+    }
+
+    .about-heading {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0d0d0d;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .about-divider {
+      width: 80px;
+      height: 1px;
+      background: #0d0d0d;
+      margin-bottom: 32px;
+    }
+
+    .about-text {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #0d0d0d;
+    }
+
+    .about-text p {
+      margin-bottom: 0;
+    }
+
+    .about-more {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.45s ease;
+    }
+
+    .about-more.open {
+      max-height: 1000px;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #0d0d0d;
+      background: none;
+      border: none;
+      border-bottom: 2px solid #0d0d0d;
+      padding: 0 0 2px;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .read-more-btn:focus-visible {
+      outline: 3px solid #0d0d0d;
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 768px) {
+      .about {
+        padding: 96px 56px 104px;
+      }
+
+      .about-heading {
+        font-size: 100px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      nav {
+        padding: 0 80px;
+      }
+
+      .hero-content {
+        padding: 72px 80px 0;
+      }
+
+      .hero-title {
+        font-size: 104px;
+        max-width: 820px;
+      }
+
+      .hero-sub {
+        font-size: 20px;
+        max-width: 480px;
+      }
+    }
+    /* ── PRICING ── */
+    .pricing {
+      padding-bottom: 72px;
+      background: #fff;
+    }
+
+    .pricing-heading {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0d0d0d;
+      line-height: 1;
+      padding: 64px 20px 48px;
+    }
+
+    .pricing-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-slides {
+      display: flex;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.08);
+      border: none;
+      color: #fff;
+      font-size: 48px;
+      line-height: 1;
+      padding: 20px 22px;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0.9;
+      font-family: sans-serif;
+      user-select: none;
+      min-width: 68px;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, opacity 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 1;
+    }
+
+    .carousel-btn.prev { left: 0; }
+    .carousel-btn.next { right: 0; }
+
+    /* Pricing info below carousel */
+    .pricing-info {
+      padding: 16px 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pricing-size {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0d0d0d;
+    }
+
+    .pricing-hours {
+      font-size: 15px;
+      font-weight: 400;
+      color: #555;
+    }
+
+    .pricing-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0d0d0d;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .pricing-heading {
+        font-size: 100px;
+        padding: 96px 56px 64px;
+      }
+
+      .pricing-list {
+        gap: 64px;
+      }
+
+      .pricing-info {
+        padding: 20px 56px 0;
+      }
+
+      .pricing-size { font-size: 18px; }
+      .pricing-price { font-size: 18px; }
+    }
+
+    @media (min-width: 1200px) {
+      .pricing-heading {
+        padding-left: 80px;
+        padding-right: 80px;
+      }
+
+      .pricing-list {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        padding: 0 80px;
+      }
+
+      .pricing-item {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .pricing-info {
+        padding: 20px 24px 0;
+      }
+    }
+
+    .pricing-cta {
+      padding: 48px 20px 72px;
+    }
+
+    @media (min-width: 768px) {
+      .pricing-cta { padding: 64px 56px 96px; }
+    }
+
+    @media (min-width: 1200px) {
+      .pricing-cta { padding: 64px 80px 96px; }
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 64px 20px 0;
+      background: #fff;
+    }
+
+    .contact-heading {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.92;
+      color: #0d0d0d;
+      margin-bottom: 24px;
+    }
+
+    .contact-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: #888;
+      line-height: 1.75;
+      margin-bottom: 48px;
+      max-width: 340px;
+    }
+
+    .form-field {
+      margin-bottom: 28px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #bbb;
+      padding: 12px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #0d0d0d;
+      background: transparent;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: #aaa;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-bottom-color: #0d0d0d;
+      box-shadow: 0 2px 0 0 #0d0d0d;
+    }
+
+    .form-field textarea {
+      resize: none;
+      height: 110px;
+    }
+
+    /* File upload */
+    .file-drop {
+      position: relative;
+      border: 2px dashed #bbb;
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .file-drop:hover,
+    .file-drop.dragover {
+      border-color: #0d0d0d;
+    }
+
+    .file-drop input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 0;
+    }
+
+    .file-drop-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #888;
+    }
+
+    .file-drop-label {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .file-drop-label span {
+      display: block;
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .file-list {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .file-list-item {
+      font-size: 13px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .file-list-item::before {
+      content: '·';
+      color: #aaa;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 22px;
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      margin-top: 40px;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover { background: #2a2a2a; }
+    .btn-submit:disabled { background: #888; cursor: not-allowed; }
+
+    .form-success {
+      display: none;
+      padding: 20px;
+      background: #f5f5f5;
+      font-size: 14px;
+      color: #0d0d0d;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 72px;
+      padding: 36px 20px;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-instagram {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-instagram:hover { color: #fff; }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.05em;
+    }
+
+    @media (min-width: 768px) {
+      .contact {
+        padding: 96px 56px 0;
+      }
+
+      /* Side-by-side: heading+sub left, form right */
+      .contact-inner {
+        display: flex;
+        gap: 64px;
+        align-items: flex-start;
+      }
+
+      .contact-left {
+        flex: 0 0 280px;
+        position: sticky;
+        top: 80px;
+      }
+
+      .contact-heading {
+        font-size: 72px;
+        margin-bottom: 20px;
+      }
+
+      .contact-sub { font-size: 14px; max-width: 100%; margin-bottom: 0; }
+
+      .contact-right { flex: 1; }
+
+      footer {
+        margin-top: 96px;
+        padding: 44px 56px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-top { flex: 1; }
+      .footer-bottom { text-align: right; }
+    }
+
+    @media (min-width: 1200px) {
+      .contact { padding: 120px 80px 0; }
+
+      .contact-inner { gap: 100px; }
+
+      .contact-left { flex: 0 0 360px; }
+
+      .contact-heading { font-size: 96px; }
+
+      footer { padding: 44px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><img src="hmarnologo.svg" alt="HMARNO" height="38"></a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+
+      <h1 class="hero-title">
+        Nature Inspired<br>
+        Sketch &amp; Graphic<br>
+        Tattoo Artist<br>
+        in Barcelona
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-sub">
+          Transforming ideas into bold,<br>
+          minimalist art that speaks<br>
+          volumes through simplicity
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-cta btn-dark">Free Consultation</a>
+          <a href="portfolio.html" class="btn-cta btn-white">View Work</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2 class="about-heading">ABOUT</h2>
+    <div class="about-divider"></div>
+    <div class="about-text">
+      <p>I'm Emma — a tattoo artist based in Barcelona, working by appointment only from a private studio in the city centre. My work lives at the intersection of nature and graphic art. I draw from the world around us — botanicals, birds, insects, organic forms — and translate them into clean black lines, delicate detail, and quiet precision. The style I work in is somewhere between sketch and graphic: structured, but never rigid. Expressive, but always considered.</p>
+      <div class="about-more" id="about-more">
+        <p>I spent years building my practice in Berlin, where I learned that a tattoo is not just an image — it's a conversation between two people, and a piece of art that will be carried for a lifetime. That's why I work slowly, carefully, and only on designs that feel right. Every piece I make is created exclusively for you. I don't repeat designs. Ever.</p>
+        <p>Booking with me starts with a conversation. I want to understand not just what you want, but why — what moves you, what you love, what you want to carry on your skin. From there, I design something that couldn't belong to anyone else.</p>
+        <p>My studio is a safe space for everyone. Queer-friendly, judgment-free, and built on the belief that everyone deserves to feel comfortable in the chair.</p>
+        <p>If you're looking for a custom tattoo in Barcelona — something considered, personal, and made to last — I'd love to hear from you.</p>
+      </div>
+      <button class="read-more-btn" id="read-more-btn" onclick="toggleMore()">Read more</button>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <h2 class="pricing-heading">PRICING</h2>
+    <div class="pricing-list">
+
+      <!-- S -->
+      <div class="pricing-item">
+        <div class="carousel" data-current="0">
+          <div class="carousel-slides">
+            <div class="carousel-slide"><img src="s/asset-550e9bfe-2.jpeg" alt="Small tattoo 1"></div>
+            <div class="carousel-slide"><img src="s/asset-bbcae256-2.jpeg" alt="Small tattoo 2"></div>
+            <div class="carousel-slide"><img src="s/asset-c69c67b9-2.jpeg" alt="Small tattoo 3"></div>
+            <div class="carousel-slide"><img src="s/asset-c8984c01-2.jpeg" alt="Small tattoo 4"></div>
+            <div class="carousel-slide"><img src="s/asset-d3dc80bc-2.jpeg" alt="Small tattoo 5"></div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveSlide(this,-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="moveSlide(this,1)">&#8250;</button>
+        </div>
+        <div class="pricing-info">
+          <span class="pricing-size">S – small</span>
+          <span class="pricing-hours">up to 3 hours*</span>
+          <span class="pricing-price">200–400 EUR</span>
+        </div>
+      </div>
+
+      <!-- M -->
+      <div class="pricing-item">
+        <div class="carousel" data-current="0">
+          <div class="carousel-slides">
+            <div class="carousel-slide"><img src="m/asset-2580b88c-2.jpeg" alt="Medium tattoo 1"></div>
+            <div class="carousel-slide"><img src="m/asset-28cbadb8-2.jpeg" alt="Medium tattoo 2"></div>
+            <div class="carousel-slide"><img src="m/asset-3e471bb0-2.jpeg" alt="Medium tattoo 3"></div>
+            <div class="carousel-slide"><img src="m/asset-c745bd04-2.jpeg" alt="Medium tattoo 4"></div>
+            <div class="carousel-slide"><img src="m/asset-d6be582c-2.jpeg" alt="Medium tattoo 5"></div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveSlide(this,-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="moveSlide(this,1)">&#8250;</button>
+        </div>
+        <div class="pricing-info">
+          <span class="pricing-size">M – Medium</span>
+          <span class="pricing-hours">3–5 hours</span>
+          <span class="pricing-price">500–800 EUR</span>
+        </div>
+      </div>
+
+      <!-- Full Day -->
+      <div class="pricing-item">
+        <div class="carousel" data-current="0">
+          <div class="carousel-slides">
+            <div class="carousel-slide"><img src="full day/asset-45c98f97-2.jpeg" alt="Full day tattoo 1"></div>
+            <div class="carousel-slide"><img src="full day/asset-96475180-2.jpeg" alt="Full day tattoo 2"></div>
+            <div class="carousel-slide"><img src="full day/asset-b00e39c8-1-2.jpeg" alt="Full day tattoo 3"></div>
+            <div class="carousel-slide"><img src="full day/asset-b00e39c8-2.jpeg" alt="Full day tattoo 4"></div>
+            <div class="carousel-slide"><img src="full day/asset-b9836b3b-2.jpeg" alt="Full day tattoo 5"></div>
+            <div class="carousel-slide"><img src="full day/asset-ba81dbb6-2.jpeg" alt="Full day tattoo 6"></div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveSlide(this,-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="moveSlide(this,1)">&#8250;</button>
+        </div>
+        <div class="pricing-info">
+          <span class="pricing-size">Full Day</span>
+          <span class="pricing-hours">up to 7 hours*</span>
+          <span class="pricing-price">900–1200 EUR</span>
+        </div>
+      </div>
+
+      <!-- 2 Days -->
+      <div class="pricing-item">
+        <div class="carousel" data-current="0">
+          <div class="carousel-slides">
+            <div class="carousel-slide"><img src="2 days/asset-4ffe5ff9-2.jpeg" alt="2 days tattoo 1"></div>
+            <div class="carousel-slide"><img src="2 days/asset-6f2cea31-2.jpeg" alt="2 days tattoo 2"></div>
+            <div class="carousel-slide"><img src="2 days/asset-8d7d231e-2.jpeg" alt="2 days tattoo 3"></div>
+            <div class="carousel-slide"><img src="2 days/asset-ce3f2c4e-2.jpeg" alt="2 days tattoo 4"></div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveSlide(this,-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="moveSlide(this,1)">&#8250;</button>
+        </div>
+        <div class="pricing-info">
+          <span class="pricing-size">2 Days</span>
+          <span class="pricing-hours">up to 16 hours*</span>
+          <span class="pricing-price">2000–2500 EUR</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pricing-cta">
+      <a href="#contact" class="btn-cta btn-dark">Book a consultation</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <!--
+    SETUP: Sign up at formspree.io, create a form pointed at hmarno.tattoo@gmail.com,
+    then replace YOUR_FORM_ID below with your actual form ID.
+    File attachments require Formspree's paid plan — alternatively use getform.io (free, supports files).
+  -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+    <div class="contact-left">
+      <h2 class="contact-heading">GET IN<br>TOUCH</h2>
+      <p class="contact-sub">Once you submit this form, I will review your request and contact you to discuss details, scheduling and next steps.</p>
+    </div>
+    <div class="contact-right">
+    <form id="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          enctype="multipart/form-data">
+
+      <input type="hidden" name="_replyto" value="hmarno.tattoo@gmail.com">
+      <input type="hidden" name="_subject" value="New booking request — HMARNO Tattoo">
+
+      <div class="form-field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" type="text" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" type="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-placement">Placement</label>
+        <input id="cf-placement" type="text" name="placement" placeholder="e.g. inner forearm, shoulder blade">
+      </div>
+
+      <div class="form-field">
+        <label for="cf-size">Size</label>
+        <select id="cf-size" name="size">
+          <option value="" disabled selected>Select size</option>
+          <option value="S – small (200–400 EUR)">S – small · 200–400 EUR</option>
+          <option value="M – Medium (500–800 EUR)">M – Medium · 500–800 EUR</option>
+          <option value="Full Day (900–1200 EUR)">Full Day · 900–1200 EUR</option>
+          <option value="2 Days (2000–2500 EUR)">2 Days · 2000–2500 EUR</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-idea">Your idea</label>
+        <textarea id="cf-idea" name="idea" placeholder="Describe your vision, mood, references…"></textarea>
+      </div>
+
+      <div class="form-field">
+        <label>Reference images</label>
+        <div class="file-drop" id="file-drop">
+          <input type="file" name="attachments" id="cf-files" multiple accept="image/*,.pdf">
+          <div class="file-drop-icon">↑</div>
+          <p class="file-drop-label">
+            Drop files here or click to upload
+            <span>JPG, PNG, PDF — up to 10 MB each</span>
+          </p>
+        </div>
+        <div class="file-list" id="file-list"></div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submit-btn">Send message</button>
+      <div class="form-success" id="form-success">Thanks! I'll be in touch shortly.</div>
+    </form>
+    </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <a href="#" class="footer-logo"><img src="hmarnologo.svg" alt="HMARNO" height="34" style="filter:invert(1);"></a>
+      <a href="https://www.instagram.com/hmarno.tattoo" target="_blank" class="footer-instagram">@hmarno.tattoo</a>
+    </div>
+    <div class="footer-bottom">© 2025 HMARNO · Barcelona</div>
+  </footer>
+
+  <script>
+    const AUTOPLAY_MS = 3000;
+
+    function advanceSlide(carousel, dir) {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const track  = carousel.querySelector('.carousel-slides');
+      let current  = parseInt(carousel.dataset.current) || 0;
+      current = (current + dir + slides.length) % slides.length;
+      carousel.dataset.current = current;
+      track.style.transform = `translateX(-${current * 100}%)`;
+    }
+
+    /* Called by arrow buttons */
+    function moveSlide(btn, dir) {
+      const carousel = btn.closest('.carousel');
+      advanceSlide(carousel, dir);
+      restartTimer(carousel);
+    }
+
+    function startTimer(carousel) {
+      carousel._timer = setInterval(() => advanceSlide(carousel, 1), AUTOPLAY_MS);
+    }
+
+    function restartTimer(carousel) {
+      clearInterval(carousel._timer);
+      startTimer(carousel);
+    }
+
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      startTimer(carousel);
+
+      /* Pause on hover (desktop) */
+      carousel.addEventListener('mouseenter', () => clearInterval(carousel._timer));
+      carousel.addEventListener('mouseleave', () => startTimer(carousel));
+
+      /* Pause on touch, resume after 6s of inactivity */
+      carousel.addEventListener('touchstart', () => {
+        clearInterval(carousel._timer);
+        clearTimeout(carousel._resumeTimeout);
+        carousel._resumeTimeout = setTimeout(() => startTimer(carousel), 6000);
+      }, { passive: true });
+    });
+  </script>
+
+  <script>
+    function toggleMore() {
+      const more = document.getElementById('about-more');
+      const btn = document.getElementById('read-more-btn');
+      const isOpen = more.classList.toggle('open');
+      btn.textContent = isOpen ? 'Read less' : 'Read more';
+    }
+
+    /* File picker — show selected filenames */
+    document.getElementById('cf-files').addEventListener('change', function () {
+      const list = document.getElementById('file-list');
+      list.innerHTML = '';
+      [...this.files].forEach(f => {
+        const el = document.createElement('div');
+        el.className = 'file-list-item';
+        el.textContent = f.name;
+        list.appendChild(el);
+      });
+    });
+
+    /* Drag-over highlight */
+    const drop = document.getElementById('file-drop');
+    drop.addEventListener('dragover', () => drop.classList.add('dragover'));
+    drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+    drop.addEventListener('drop', () => drop.classList.remove('dragover'));
+
+    /* Form submit feedback */
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          this.reset();
+          document.getElementById('file-list').innerHTML = '';
+          document.getElementById('form-success').style.display = 'block';
+          btn.style.display = 'none';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+          alert('Something went wrong — please try again or email hmarno.tattoo@gmail.com directly.');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      }
+    });
+  </script>
+
+</body>
+</html>

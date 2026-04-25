@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — HMARNO Tattoo Artist Barcelona</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #fff;
+      color: #0d0d0d;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      display: block;
+      height: 28px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0d0d0d;
+      text-decoration: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .page-header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .page-heading {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #0d0d0d;
+    }
+
+    .page-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .page-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: #888;
+      line-height: 1.65;
+      max-width: 360px;
+    }
+
+    .page-instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #0d0d0d;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid #0d0d0d;
+      padding-bottom: 1px;
+      width: fit-content;
+      transition: opacity 0.2s;
+    }
+
+    .page-instagram-link:hover { opacity: 0.6; }
+
+    /* ── INSTAGRAM WIDGET ── */
+    .portfolio-body {
+      padding: 48px 20px 80px;
+    }
+
+    /*
+      Behold.so widget container.
+      After you connect your Instagram at behold.so and get a widget ID,
+      replace YOUR_WIDGET_ID in the div below.
+      The widget renders a responsive grid automatically.
+    */
+    .behold-widget-wrap {
+      width: 100%;
+    }
+
+    /* Fallback shown until the widget loads */
+    .widget-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 80px 20px;
+      border: 1px dashed #e0e0e0;
+      text-align: center;
+    }
+
+    .widget-loading-icon {
+      width: 48px;
+      height: 48px;
+      opacity: 0.15;
+    }
+
+    .widget-loading-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #0d0d0d;
+    }
+
+    .widget-loading-sub {
+      font-size: 12px;
+      font-weight: 300;
+      color: #aaa;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .widget-loading-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .widget-loading-steps li {
+      font-size: 12px;
+      color: #aaa;
+      display: flex;
+      gap: 10px;
+    }
+
+    .widget-loading-steps li b {
+      color: #0d0d0d;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 36px 20px;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-instagram {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-instagram:hover { color: #fff; }
+
+    .footer-bottom {
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav {
+        height: 64px;
+        padding: 0 56px;
+      }
+
+      .nav-logo { font-size: 24px; }
+      .nav-links { gap: 40px; }
+
+      .page-header {
+        padding: 72px 56px 56px;
+      }
+
+      .page-header-inner {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .page-heading { font-size: 96px; }
+
+      .page-meta {
+        align-items: flex-end;
+        text-align: right;
+        flex-shrink: 0;
+        padding-bottom: 8px;
+      }
+
+      .page-sub { max-width: 300px; text-align: right; }
+
+      .portfolio-body {
+        padding: 56px 56px 96px;
+      }
+
+      footer {
+        padding: 44px 56px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-top { flex: 1; }
+      .footer-bottom { text-align: right; }
+    }
+
+    @media (min-width: 1200px) {
+      nav { padding: 0 80px; }
+      .page-header { padding: 80px 80px 64px; }
+      .page-heading { font-size: 120px; }
+      .portfolio-body { padding: 64px 80px 120px; }
+      footer { padding: 44px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="hmarnologo.svg" alt="HMARNO" height="38"></a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1 class="page-heading">PORTFOLIO</h1>
+      <div class="page-meta">
+        <p class="page-sub">Nature-inspired, sketch &amp; graphic tattoo work from Barcelona.</p>
+        <a class="page-instagram-link"
+           href="https://www.instagram.com/hmarno.tattoo"
+           target="_blank"
+           rel="noopener">
+          ↗ @hmarno.tattoo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- INSTAGRAM FEED -->
+  <main class="portfolio-body">
+
+    <!--
+      ─────────────────────────────────────────────────────
+      SETUP INSTRUCTIONS (one-time, ~2 minutes):
+
+      1. Go to https://behold.so and sign up (free)
+      2. Connect your @hmarno.tattoo Instagram account
+      3. Create a new widget — choose Grid layout, any column count
+      4. Copy your Widget ID (looks like: abcde12345)
+      5. Replace YOUR_WIDGET_ID in the div below with your ID
+      6. Save & refresh — the live Instagram feed appears here
+      ─────────────────────────────────────────────────────
+    -->
+
+    <div class="behold-widget-wrap">
+      <div id="behold-widget-YOUR_WIDGET_ID">
+
+        <!-- Shown until the real widget loads -->
+        <div class="widget-loading">
+          <svg class="widget-loading-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="42" height="42" rx="12" stroke="#0d0d0d" stroke-width="3"/>
+            <circle cx="24" cy="24" r="9" stroke="#0d0d0d" stroke-width="3"/>
+            <circle cx="35" cy="13" r="2.5" fill="#0d0d0d"/>
+          </svg>
+          <p class="widget-loading-title">Instagram feed goes here</p>
+          <p class="widget-loading-sub">Connect your account in ~2 minutes:</p>
+          <ol class="widget-loading-steps">
+            <li><b>1.</b> Sign up at behold.so (free)</li>
+            <li><b>2.</b> Connect @hmarno.tattoo</li>
+            <li><b>3.</b> Create a Grid widget</li>
+            <li><b>4.</b> Replace YOUR_WIDGET_ID in this file</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Behold.so widget script — loads after ID is set -->
+    <script type="module" src="https://w.behold.so/widget.js"></script>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo"><img src="hmarnologo.svg" alt="HMARNO" height="34" style="filter:invert(1);"></a>
+      <a href="https://www.instagram.com/hmarno.tattoo" target="_blank" class="footer-instagram">@hmarno.tattoo</a>
+    </div>
+    <div class="footer-bottom">© 2025 HMARNO · Barcelona</div>
+  </footer>
+
+</body>
+</html>
