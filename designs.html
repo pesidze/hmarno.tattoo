@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designs — HMARNO Tattoo Artist Barcelona</title>
+  <meta name="description" content="Original custom tattoo designs by HMARNO — tattoo artist in Barcelona. Every design is one-of-a-kind: never repeated, never reused. Sketch and graphic style illustrations available for booking.">
+  <meta name="keywords" content="custom tattoo design barcelona, original tattoo design, sketch tattoo design, graphic tattoo illustration, unique tattoo barcelona, tatuaje diseño barcelona, diseño tatuaje original">
+  <link rel="canonical" href="https://hmarno.tattoo/designs.html">
+  <meta property="og:title" content="Designs — HMARNO Tattoo Artist Barcelona">
+  <meta property="og:description" content="Original one-of-a-kind tattoo designs. Never repeated, never reused. Sketch & graphic style. Barcelona.">
+  <meta property="og:image" content="https://hmarno.tattoo/hero.webp">
+  <meta property="og:url" content="https://hmarno.tattoo/designs.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #fff;
+      color: #0d0d0d;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      display: block;
+      height: 28px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0d0d0d;
+      text-decoration: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .page-header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .page-heading {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #0d0d0d;
+    }
+
+    .page-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 560px;
+    }
+
+    .page-intro p {
+      font-size: 15px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    .page-intro strong {
+      color: #0d0d0d;
+      font-weight: 500;
+    }
+
+    .page-instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #0d0d0d;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid #0d0d0d;
+      padding-bottom: 1px;
+      width: fit-content;
+      transition: opacity 0.2s;
+    }
+
+    .page-instagram-link:hover { opacity: 0.6; }
+
+    /* ── PHOTO GRID ── */
+    .portfolio-body {
+      padding: 0;
+    }
+
+    .photo-grid {
+      columns: 2;
+      column-gap: 2px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    @media (min-width: 768px) {
+      .photo-grid { columns: 3; }
+    }
+
+    @media (min-width: 1200px) {
+      .photo-grid { columns: 4; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 36px 20px;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-instagram {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-instagram:hover { color: #fff; }
+
+    .footer-bottom {
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav {
+        height: 64px;
+        padding: 0 56px;
+      }
+
+      .nav-links { gap: 40px; }
+
+      .page-header {
+        padding: 72px 56px 56px;
+      }
+
+      .page-header-inner {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 64px;
+      }
+
+      .page-heading { font-size: 96px; flex-shrink: 0; }
+
+      .page-intro { max-width: 400px; }
+
+      footer {
+        padding: 44px 56px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-top { flex: 1; }
+      .footer-bottom { text-align: right; }
+    }
+
+    @media (min-width: 1200px) {
+      nav { padding: 0 80px; }
+      .page-header { padding: 80px 80px 64px; }
+      .page-heading { font-size: 120px; }
+      footer { padding: 44px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="hmarnologo.svg" alt="HMARNO" height="38"></a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="designs.html" class="active">Designs</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1 class="page-heading">DESIGNS</h1>
+      <div class="page-intro">
+        <p>These are my original drawings — sketches, studies, and flash designs created in my own time. <strong>Every piece is unique and made once.</strong> I never repeat a design or sell the same image twice.</p>
+        <p>If something here speaks to you, reach out. We can use it as a starting point or I can create something entirely new just for you.</p>
+        <a class="page-instagram-link"
+           href="https://www.instagram.com/hmarno.tattoo"
+           target="_blank"
+           rel="noopener">
+          ↗ @hmarno.tattoo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- DESIGNS GRID -->
+  <main class="portfolio-body">
+    <div class="photo-grid">
+      <img src="designs/1227.jpg" alt="Original tattoo flash design — hare in ruff collar with drink me bottle and stars, sketch style — tattoo design Barcelona">
+      <img src="designs/125.png" alt="Original tattoo design — woman-bird figure with arrows and circle, graphic style — tattoo design Barcelona">
+      <img src="designs/1212.png" alt="Original tattoo design — graphic portrait of a woman with chain and red accents — tattoo design Barcelona">
+      <img src="designs/1223.png" alt="Original tattoo flash sheet — various mushroom designs, sketch style — tattoo design Barcelona">
+      <img src="designs/122.png" alt="Original tattoo design — graphic shell with snail — tattoo design Barcelona">
+      <img src="designs/1214.png" alt="Original tattoo design — sketch of a deer with a crow perched on its head — tattoo design Barcelona">
+      <img src="designs/1211.png" alt="Original tattoo design — graphic rose with film strip — tattoo design Barcelona">
+      <img src="designs/1220.png" alt="Original tattoo design — ink sketch of a woman figure with a snake among plants — tattoo design Barcelona">
+      <img src="designs/124.png" alt="Original tattoo design — graphic cat lying inside an oyster shell — tattoo design Barcelona">
+      <img src="designs/1215.png" alt="Original tattoo design — sketch of a unicorn head wearing a beanie hat with chain — tattoo design Barcelona">
+      <img src="designs/128.png" alt="Original tattoo design — three fish with the text every fish has the right to bite on the hook she likes — tattoo design Barcelona">
+      <img src="designs/1226.png" alt="Original tattoo design — ink sketch of a fantasy alien creature smoking in a dress — tattoo design Barcelona">
+      <img src="designs/121.png" alt="Original tattoo flash design — hare in ruff collar with drink me bottle, stars and severed hand — tattoo design Barcelona">
+      <img src="designs/1213.png" alt="Original tattoo design — dark sketch of a winged owl creature — tattoo design Barcelona">
+      <img src="designs/1221.png" alt="Original tattoo flash sheet — cat in gnome hat, samovar and blooming cactus — tattoo design Barcelona">
+      <img src="designs/1219.png" alt="Original tattoo design — ink sketch of koi fish inspired by a decorative vase with flowers — tattoo design Barcelona">
+      <img src="designs/123.png" alt="Original tattoo design — Bye Barbie graphic portrait with pink ribbon — tattoo design Barcelona">
+      <img src="designs/1217.png" alt="Original tattoo design — sketch of a zebra finch bird on a branch — tattoo design Barcelona">
+      <img src="designs/1222.png" alt="Original tattoo flash sheet — open book, frog, apple head doll, giraffe and toad — tattoo design Barcelona">
+      <img src="designs/1210.png" alt="Original tattoo design — pencil sketch of a gargoyle — tattoo design Barcelona">
+      <img src="designs/126.png" alt="Original tattoo design — red sketch of botanical elements, flowers, leaves and eye motif — tattoo design Barcelona">
+      <img src="designs/1225.png" alt="Original tattoo design — sketchbook study of hands with stars — tattoo design Barcelona">
+      <img src="designs/127.png" alt="Original tattoo design — open book with a hand-drawn heart and the text I can show you another life baby — tattoo design Barcelona">
+      <img src="designs/1224.png" alt="Original tattoo design — double exposure graphic with Sunshine and Falling Through the Trees — tattoo design Barcelona">
+      <img src="designs/1218.png" alt="Original tattoo design — sketchbook study of two elephants — tattoo design Barcelona">
+      <img src="designs/129.png" alt="Original tattoo design — sketch of a rifle with red floral elements and the text from peace to death — tattoo design Barcelona">
+      <img src="designs/1216.png" alt="Original tattoo design — red sketch of dolphins and flowers in sketchbook — tattoo design Barcelona">
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo"><img src="hmarnologo.svg" alt="HMARNO" height="34" style="filter:invert(1);"></a>
+      <a href="https://www.instagram.com/hmarno.tattoo" target="_blank" class="footer-instagram">@hmarno.tattoo</a>
+    </div>
+    <div class="footer-bottom">© 2026 HMARNO · Barcelona</div>
+  </footer>
+
+</body>
+</html>
