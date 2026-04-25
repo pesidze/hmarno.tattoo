@@ -122,72 +122,28 @@
 
     .page-instagram-link:hover { opacity: 0.6; }
 
-    /* ── INSTAGRAM WIDGET ── */
+    /* ── PHOTO GRID ── */
     .portfolio-body {
-      padding: 48px 20px 80px;
+      padding: 0;
     }
 
-    /*
-      Behold.so widget container.
-      After you connect your Instagram at behold.so and get a widget ID,
-      replace YOUR_WIDGET_ID in the div below.
-      The widget renders a responsive grid automatically.
-    */
-    .behold-widget-wrap {
+    .photo-grid {
+      columns: 2;
+      column-gap: 2px;
+    }
+
+    .photo-grid img {
       width: 100%;
+      display: block;
+      margin-bottom: 2px;
     }
 
-    /* Fallback shown until the widget loads */
-    .widget-loading {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 80px 20px;
-      border: 1px dashed #e0e0e0;
-      text-align: center;
+    @media (min-width: 768px) {
+      .photo-grid { columns: 3; }
     }
 
-    .widget-loading-icon {
-      width: 48px;
-      height: 48px;
-      opacity: 0.15;
-    }
-
-    .widget-loading-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: #0d0d0d;
-    }
-
-    .widget-loading-sub {
-      font-size: 12px;
-      font-weight: 300;
-      color: #aaa;
-      line-height: 1.7;
-      max-width: 320px;
-    }
-
-    .widget-loading-steps {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      text-align: left;
-    }
-
-    .widget-loading-steps li {
-      font-size: 12px;
-      color: #aaa;
-      display: flex;
-      gap: 10px;
-    }
-
-    .widget-loading-steps li b {
-      color: #0d0d0d;
-      font-weight: 600;
-      flex-shrink: 0;
+    @media (min-width: 1200px) {
+      .photo-grid { columns: 4; }
     }
 
     /* ── FOOTER ── */
@@ -259,10 +215,6 @@
 
       .page-sub { max-width: 300px; text-align: right; }
 
-      .portfolio-body {
-        padding: 56px 56px 96px;
-      }
-
       footer {
         padding: 44px 56px;
         flex-direction: row;
@@ -278,7 +230,6 @@
       nav { padding: 0 80px; }
       .page-header { padding: 80px 80px 64px; }
       .page-heading { font-size: 120px; }
-      .portfolio-body { padding: 64px 80px 120px; }
       footer { padding: 44px 80px; }
     }
   </style>
@@ -310,48 +261,36 @@
     </div>
   </header>
 
-  <!-- INSTAGRAM FEED -->
+  <!-- PORTFOLIO GRID -->
   <main class="portfolio-body">
-
-    <!--
-      ─────────────────────────────────────────────────────
-      SETUP INSTRUCTIONS (one-time, ~2 minutes):
-
-      1. Go to https://behold.so and sign up (free)
-      2. Connect your @hmarno.tattoo Instagram account
-      3. Create a new widget — choose Grid layout, any column count
-      4. Copy your Widget ID (looks like: abcde12345)
-      5. Replace YOUR_WIDGET_ID in the div below with your ID
-      6. Save & refresh — the live Instagram feed appears here
-      ─────────────────────────────────────────────────────
-    -->
-
-    <div class="behold-widget-wrap">
-      <div id="behold-widget-YOUR_WIDGET_ID">
-
-        <!-- Shown until the real widget loads -->
-        <div class="widget-loading">
-          <svg class="widget-loading-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="3" width="42" height="42" rx="12" stroke="#0d0d0d" stroke-width="3"/>
-            <circle cx="24" cy="24" r="9" stroke="#0d0d0d" stroke-width="3"/>
-            <circle cx="35" cy="13" r="2.5" fill="#0d0d0d"/>
-          </svg>
-          <p class="widget-loading-title">Instagram feed goes here</p>
-          <p class="widget-loading-sub">Connect your account in ~2 minutes:</p>
-          <ol class="widget-loading-steps">
-            <li><b>1.</b> Sign up at behold.so (free)</li>
-            <li><b>2.</b> Connect @hmarno.tattoo</li>
-            <li><b>3.</b> Create a Grid widget</li>
-            <li><b>4.</b> Replace YOUR_WIDGET_ID in this file</li>
-          </ol>
-        </div>
-
-      </div>
+    <div class="photo-grid">
+      <img src="s/asset-550e9bfe-2.jpeg" alt="Sketch tattoo with mushrooms, stars and botanical elements on forearm — tattoo Barcelona">
+      <img src="m/asset-2580b88c-2.jpeg" alt="Graphic tattoo of two puffer fish on forearm — tattoo Barcelona">
+      <img src="portfolio/11.jpg" alt="Graphic tattoo of a snail with a human figure holding a mushroom on forearm — tattoo Barcelona">
+      <img src="full day/asset-45c98f97-2.jpeg" alt="Graphic tattoo of armoured woman warrior with flower crown on shoulder — tattoo Barcelona">
+      <img src="2 days/asset-8d7d231e-2.jpeg" alt="Full sleeve tattoo of nature goddess figure with antlers and monstera leaves — tattoo Barcelona">
+      <img src="portfolio/17.jpg" alt="Sketch tattoo of two dragons emerging from open books on upper arm — tattoo Barcelona">
+      <img src="s/asset-c69c67b9-2.jpeg" alt="Fine line botanical tattoo with eucalyptus seed pods on inner arm — tattoo Barcelona">
+      <img src="m/asset-3e471bb0-2.jpeg" alt="Sketch tattoo of a burrowing owl on forearm — tattoo Barcelona">
+      <img src="portfolio/14.jpg" alt="Sketch tattoo of three owls perched on a branch on upper arm — tattoo Barcelona">
+      <img src="full day/asset-ba81dbb6-2.jpeg" alt="Botanical tattoo of tropical monstera vine spanning hip and thigh — tattoo Barcelona">
+      <img src="2 days/asset-ce3f2c4e-2.jpeg" alt="Sketch tattoo of fox and bird among botanical foliage on shoulder — tattoo Barcelona">
+      <img src="portfolio/16.jpg" alt="Graphic tattoo of a whale with cosmic moon and star on calf — tattoo Barcelona">
+      <img src="s/asset-c8984c01-2.jpeg" alt="Sketch tattoo of two manta rays on upper arm — tattoo Barcelona">
+      <img src="m/asset-c745bd04-2.jpeg" alt="Fine line moth tattoo with star on thigh — tattoo Barcelona">
+      <img src="portfolio/15.jpg" alt="Fine line tattoo of a woman figure inside an oyster shell on inner arm — tattoo Barcelona">
+      <img src="full day/asset-b9836b3b-2.jpeg" alt="Graphic tattoo of an armoured velociraptor on thigh — tattoo Barcelona">
+      <img src="2 days/asset-4ffe5ff9-2.jpeg" alt="Large cobra snake and ginkgo botanical tattoo wrapping the forearm — tattoo Barcelona">
+      <img src="portfolio/12.jpg" alt="Graphic bat tattoo on knee — tattoo Barcelona">
+      <img src="s/asset-d3dc80bc-2.jpeg" alt="Fine line dragonfly and ladybird tattoo on forearm — tattoo Barcelona">
+      <img src="m/asset-28cbadb8-2.jpeg" alt="Dark graphic owl creature tattoo on inner arm — tattoo Barcelona">
+      <img src="portfolio/13.jpg" alt="Graphic bat tattoo on inner arm — tattoo Barcelona">
+      <img src="full day/asset-96475180-2.jpeg" alt="Sketch tattoo of a ghost and penguin reading books on thigh — tattoo Barcelona">
+      <img src="2 days/asset-6f2cea31-2.jpeg" alt="Abstract fluid graphic lines tattoo covering shoulder and upper arm — tattoo Barcelona">
+      <img src="s/asset-bbcae256-2.jpeg" alt="Graphic tattoo with triceratops and colorful botanical patchwork on arm — tattoo Barcelona">
+      <img src="m/asset-d6be582c-2.jpeg" alt="Graphic tattoo of shoebill bird with monstera leaves and bee on arm — tattoo Barcelona">
+      <img src="full day/asset-b00e39c8-1-2.jpeg" alt="Graphic tattoo of a fox in waistcoat sitting and smoking on calf — tattoo Barcelona">
     </div>
-
-    <!-- Behold.so widget script — loads after ID is set -->
-    <script type="module" src="https://w.behold.so/widget.js"></script>
-
   </main>
 
   <!-- FOOTER -->
