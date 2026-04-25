@@ -17,6 +17,9 @@
 <meta name="description" content="Berlin-trained tattoo artist based in Barcelona. Specialising in sketch and graphic tattoos inspired by nature. Custom designs only — no repeats, no flash. Book by appointment.">
 <meta name="keywords" content="tattoo artist barcelona, sketch tattoo barcelona, graphic tattoo barcelona, nature tattoo barcelona, custom tattoo barcelona, queer friendly tattoo barcelona, tatuaje barcelona, tatuadora barcelona">
 <link rel="canonical" href="https://hmarno.tattoo/">
+<link rel="alternate" hreflang="en" href="https://hmarno.tattoo/">
+<link rel="alternate" hreflang="es" href="https://hmarno.tattoo/es/">
+<link rel="alternate" hreflang="x-default" href="https://hmarno.tattoo/">
 
 <!-- Open Graph (для соцсетей) -->
 <meta property="og:title" content="HMARNO — Tattoo Artist Barcelona">
@@ -105,6 +108,12 @@
   "sameAs": ["https://www.instagram.com/hmarno.tattoo"]
 }
 </script>
+  <script>
+    var lang = navigator.language || navigator.userLanguage;
+    if (lang.startsWith('es') && !window.location.pathname.includes('/es')) {
+      window.location.href = '/es/index.html';
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -241,6 +250,15 @@
 
     .nav-links a:hover {
       opacity: 1;
+    }
+
+    .lang-switch {
+      font-size: 20px;
+      line-height: 1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 2px;
     }
 
     /* ── HERO ── */
@@ -1009,6 +1027,7 @@
   <nav>
     <a href="#" class="nav-logo"><img src="hmarnologo.svg" alt="HMARNO" height="38"></a>
     <div class="nav-right">
+      <a href="es/index.html" class="lang-switch" title="Versión en español">🇪🇸</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
       <button class="nav-burger" aria-label="Toggle menu" onclick="toggleNav()">
         <span></span><span></span><span></span>
