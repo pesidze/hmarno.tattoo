@@ -96,14 +96,16 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "TattooParlor"],
   "name": "HMARNO Tattoo",
-  "description": "Berlin-trained tattoo artist based in Barcelona, specialising in sketch and graphic tattoos inspired by nature. Custom designs only.",
+  "description": "Berlin-trained tattoo artist based in Barcelona, specialising in sketch and graphic tattoos inspired by nature. Custom designs only — no repeats, no flash.",
   "url": "https://hmarno.tattoo",
   "image": "https://hmarno.tattoo/hero.webp",
+  "email": "hmarno.tattoo@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Barcelona",
+    "addressRegion": "Catalonia",
     "addressCountry": "ES"
   },
   "geo": {
@@ -111,8 +113,53 @@
     "latitude": 41.3851,
     "longitude": 2.1734
   },
+  "areaServed": {
+    "@type": "City",
+    "name": "Barcelona"
+  },
   "openingHours": "Tu-Sa 10:00-19:00",
   "priceRange": "€€€",
+  "currenciesAccepted": "EUR",
+  "knowsAbout": ["sketch tattoo", "graphic tattoo", "botanical tattoo", "nature tattoo", "custom tattoo design"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tattoo Sessions",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Small tattoo (up to 3h)",
+        "priceRange": "200-400",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "name": "Medium tattoo (3–5h)",
+        "priceRange": "500-800",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "name": "Full day session (up to 7h)",
+        "priceRange": "900-1200",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "name": "Two-day session (up to 16h)",
+        "priceRange": "2000-2500",
+        "priceCurrency": "EUR"
+      }
+    ]
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Book a consultation",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://hmarno.tattoo/#contact",
+      "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+    }
+  },
   "sameAs": ["https://www.instagram.com/hmarno.tattoo"]
 }
 </script>
@@ -304,6 +351,10 @@
     }
 
     /* ── TITLE ── */
+    .hero-title-link {
+      text-decoration: none;
+    }
+
     .hero-title {
       font-size: 48px;
       font-weight: 700;
@@ -367,10 +418,35 @@
 
       .nav-logo {
         font-size: 24px;
+        order: 1;
       }
 
       .nav-links {
-        padding: 8px 48px 16px;
+        display: flex;
+        flex-direction: row;
+        position: static;
+        border-bottom: none;
+        padding: 0;
+        box-shadow: none;
+        gap: 32px;
+        order: 2;
+      }
+
+      .nav-links li {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        padding: 0;
+        font-size: 12px;
+      }
+
+      .nav-right {
+        order: 3;
+      }
+
+      .nav-burger {
+        display: none;
       }
 
       .hero {
@@ -473,15 +549,20 @@
       .about-heading {
         font-size: 100px;
       }
+
+      .about-more {
+        max-height: none;
+        overflow: visible;
+      }
+
+      .read-more-btn {
+        display: none;
+      }
     }
 
     @media (min-width: 1200px) {
       nav {
         padding: 0 80px;
-      }
-
-      .nav-links {
-        padding: 8px 80px 16px;
       }
 
       .hero-content {
@@ -1045,6 +1126,7 @@
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="designs.html">Designs</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
   </nav>
 
@@ -1054,12 +1136,14 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
 
-      <h1 class="hero-title">
-        Nature Inspired<br>
-        Sketch &amp; Graphic<br>
-        Tattoo Artist<br>
-        in Barcelona
-      </h1>
+      <a href="portfolio.html" class="hero-title-link">
+        <h1 class="hero-title">
+          Nature Inspired<br>
+          Sketch &amp; Graphic<br>
+          Tattoo Artist<br>
+          in Barcelona
+        </h1>
+      </a>
 
       <div class="hero-bottom">
         <p class="hero-sub">
