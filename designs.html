@@ -27,6 +27,16 @@
   <meta property="og:image" content="https://hmarno.tattoo/hero.webp">
   <meta property="og:url" content="https://hmarno.tattoo/designs.html">
   <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hmarno.tattoo/" },
+      { "@type": "ListItem", "position": 2, "name": "Designs", "item": "https://hmarno.tattoo/designs.html" }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -166,6 +176,31 @@
 
     .nav-links a:hover { opacity: 1; }
     .nav-links a.active { opacity: 1; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb a {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: #0d0d0d; }
+
+    .breadcrumb-sep { color: #ccc; }
+
+    .breadcrumb-current { color: #0d0d0d; }
 
     /* ── PAGE HEADER ── */
     .page-header {
@@ -349,6 +384,11 @@
   <!-- PAGE HEADER -->
   <header class="page-header">
     <div class="page-header-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current" aria-current="page">Designs</span>
+      </nav>
       <h1 class="page-heading">DESIGNS</h1>
       <div class="page-intro">
         <p>These are my original drawings — sketches, studies, and flash designs created in my own time. <strong>Every piece is unique and made once.</strong> I never repeat a design or sell the same image twice.</p>

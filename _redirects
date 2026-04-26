@@ -1,0 +1,3 @@
+# Canonicalise explicit index.html filenames to clean URLs
+/es/index.html    /es/    301
+/index.html       /       301

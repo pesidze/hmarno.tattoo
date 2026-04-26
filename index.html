@@ -117,7 +117,7 @@
     "@type": "City",
     "name": "Barcelona"
   },
-  "openingHours": "Tu-Sa 10:00-19:00",
+  "openingHours": ["Mo-Sa 11:00-19:00"],
   "priceRange": "€€€",
   "currenciesAccepted": "EUR",
   "knowsAbout": ["sketch tattoo", "graphic tattoo", "botanical tattoo", "nature tattoo", "custom tattoo design"],
@@ -163,12 +163,36 @@
   "sameAs": ["https://www.instagram.com/hmarno.tattoo"]
 }
 </script>
-  <script>
-    var lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith('es') && !window.location.pathname.includes('/es')) {
-      window.location.href = '/es/index.html';
-    }
-  </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Emma",
+  "jobTitle": "Tattoo Artist",
+  "description": "Berlin-trained tattoo artist based in Barcelona, specialising in sketch and graphic tattoos inspired by nature.",
+  "url": "https://hmarno.tattoo",
+  "image": "https://hmarno.tattoo/hero.webp",
+  "worksFor": {
+    "@type": "LocalBusiness",
+    "name": "HMARNO Tattoo",
+    "url": "https://hmarno.tattoo"
+  },
+  "sameAs": ["https://www.instagram.com/hmarno.tattoo"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HMARNO Tattoo",
+  "url": "https://hmarno.tattoo",
+  "inLanguage": "en",
+  "description": "Berlin-trained tattoo artist based in Barcelona. Custom sketch and graphic tattoos inspired by nature."
+}
+</script>
+  <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -351,10 +375,6 @@
     }
 
     /* ── TITLE ── */
-    .hero-title-link {
-      text-decoration: none;
-    }
-
     .hero-title {
       font-size: 48px;
       font-weight: 700;
@@ -1116,7 +1136,7 @@
   <nav>
     <a href="#" class="nav-logo"><img src="hmarnologo.svg" alt="HMARNO" height="38"></a>
     <div class="nav-right">
-      <a href="es/index.html" class="lang-switch" title="Versión en español">🇪🇸</a>
+      <a href="/es/" class="lang-switch" title="Versión en español">🇪🇸</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
       <button class="nav-burger" aria-label="Toggle menu" onclick="toggleNav()">
         <span></span><span></span><span></span>
@@ -1136,14 +1156,12 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
 
-      <a href="portfolio.html" class="hero-title-link">
-        <h1 class="hero-title">
-          Nature Inspired<br>
-          Sketch &amp; Graphic<br>
-          Tattoo Artist<br>
-          in Barcelona
-        </h1>
-      </a>
+      <h1 class="hero-title">
+        Nature Inspired<br>
+        Sketch &amp; Graphic<br>
+        Tattoo Artist<br>
+        in Barcelona
+      </h1>
 
       <div class="hero-bottom">
         <p class="hero-sub">
