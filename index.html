@@ -387,9 +387,11 @@
     .hero-bottom {
       display: flex;
       flex-direction: column;
+      margin-bottom: 30%;
     }
 
     .hero-sub {
+      display: none;
       padding: 0 0 28px;
       font-size: 19px;
       font-weight: 400;
@@ -400,7 +402,7 @@
     /* ── BUTTONS ── */
     .hero-ctas {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
 
     .btn-cta {
@@ -429,8 +431,48 @@
       color: #0d0d0d;
     }
 
+    .sticky-instagram {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #0d0d0d;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-instagram:hover {
+      background: #333;
+      transform: translateX(-50%) translateY(-2px);
+    }
+    .sticky-instagram.on-hero {
+      background: #fff;
+      color: #0d0d0d;
+    }
+    .sticky-instagram.on-hero:hover {
+      background: #f0f0f0;
+    }
+
     /* ── DESKTOP ── */
     @media (min-width: 768px) {
+      .hero-bg {
+        background-image: url('2IMG_3142.jpg');
+        background-position: center bottom;
+      }
+
       nav {
         height: 64px;
         padding: 0 48px;
@@ -482,7 +524,24 @@
         max-width: 640px;
       }
 
+      .hero-bottom {
+        margin-bottom: 0;
+      }
+
+      .sticky-instagram {
+        left: auto;
+        right: 32px;
+        transform: none;
+      }
+      .sticky-instagram:hover {
+        transform: translateY(-2px);
+      }
+      .sticky-instagram.on-hero:hover {
+        transform: translateY(-2px);
+      }
+
       .hero-sub {
+        display: block;
         font-size: 18px;
         max-width: 420px;
         padding-bottom: 36px;
@@ -1169,10 +1228,6 @@
 Berlin-trained · Barcelona-based · Queer-friendly
 
         </p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn-cta btn-dark">Free Consultation</a>
-          <a href="portfolio.html" class="btn-cta btn-white">View Work</a>
-        </div>
       </div>
 
     </div>
@@ -1559,6 +1614,30 @@ Berlin-trained · Barcelona-based · Queer-friendly
         btn.textContent = 'Send message';
       }
     });
+  </script>
+
+  <!-- STICKY INSTAGRAM -->
+  <a href="https://www.instagram.com/hmarno.tattoo" target="_blank" rel="noopener" class="sticky-instagram on-hero" aria-label="Follow on Instagram">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+    </svg>
+    Follow
+  </a>
+
+  <script>
+    (function () {
+      const btn = document.querySelector('.sticky-instagram');
+      const hero = document.querySelector('.hero');
+      function update() {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const btnTop = window.innerHeight - btn.offsetHeight - 24;
+        btn.classList.toggle('on-hero', heroBottom > btnTop);
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
   </script>
 
 </body>
